@@ -1,0 +1,28 @@
+@title = "Email Criptografado"
+@nav_title = "Email"
+
+h2. Configurando Email 
+
+Para fazer a criptografia de email funcionar, você tem duas opções:
+
+1. [[Extensão Bitmask para Thunderbird => https://addons.mozilla.org/en-us/thunderbird/addon/bitmask/]] (recomendado)
+2. Configuração manual do cliente de email
+
+h3. Extensão Bitmask para Thunderbird
+
+# Instale a aplicaçao Bitmask e registre uma conta.
+# Instale a [[Extensão Bitmask para Thunderbird => https://addons.mozilla.org/en-us/thunderbird/addon/bitmask/]]. No Thunderbird, selecione no menu *Ferramentas* > *Extensões...* e pesquise por "Bitmask".
+# Depois de instalar a extensão, você pode adicionar uma conta de email através do menu *Arquivo* > *Novo* > *Conta Bitmask...*
+
+h3. Configuração manual do cliente de email
+
+* IMAP -- @localhost:1984@
+** *usuário*: endereço completo do email você utiliza para a aplicação Bitmask.
+** *password*: pode ser qualquer coisa.
+** *SSL/TLS*: off
+* SMTP -- @localhost:2013@
+** *autenticação*: nenhuma
+** *SSL/TLS*: off
+
+*Desabilite cópia local (caching)*: Você pode desabilitar qualquer 'caching' local no seu cliente de email. Todos os dados armazenados no disco pelo Bitmask são criptografados, mas qualquer cache mantido pelo seu cliente de email é menos seguro. Uma vez que todos os seus emails Bitmask são sincronizados localmente, não exist nenhum benefício em manter uma cópia local (local caching).
+
