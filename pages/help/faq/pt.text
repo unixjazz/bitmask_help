@@ -2,9 +2,9 @@
 
 h1. Tópicos Gerais 
 
-h2. Como faço para remover um provedor? 
+h2. Como faço para remover um provedor de serviços? 
 
-Nós estamos trabalhando em uma forma fácil de remover um providor. Por enquanto, você pode remover um provedor de forma manual. Suponhamos que o provedor a ser removido seja "example.org":
+Nós estamos trabalhando em uma forma fácil de remover um provedor. Por enquanto, você pode remover um provedor de forma manual. Suponhamos que o provedor a ser removido seja "example.org":
 
 * No Linux, rode o comando @rm -r ~/.config/leap/providers/example.org@
 * No Mac, ???
