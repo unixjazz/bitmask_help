@@ -1,0 +1,64 @@
+@title = "Detalhes sobre o Bitmask Email"
+@nav_title = "Email"
+
+h2. Como Funciona
+
+Quando um provedor de serviços roda sob a platforma LEAP, os usuários pode obter acesso seguro à email em três passos:
+
+# Baixe e instale a aplicação bitmask.
+# Rode a aplicação bitmask para fazer log-in ou registrar uma conta com o provedor de serviços.
+# Configurar um cliente de email para o usuário e conectar à aplicação Bitmask local. No caso do cliente de email Thunderbird, esta configuração é semi-automática.
+
+A aplicação Bitmask atua como um proxy local entre o provedor de serviços e o cliente de email. Ele gerencia a criptografia e a sincronização de dados.
+
+h2. Beneficios imediatos do uso do email Bitmask
+
+As características do email incluem:
+
+* O email criptografado Bitmask é fácil de usar além de ser retro-compatível com o protocolo OpenPGP para email seguro.
+* Caso não esteja encriptado, todo o email recebido é automaticamente encriptado no servidor antes de ser arquivado de forma que somente você pode lê-lo (incluindo os metadados). O servidor é capaz de ler os emails recebidos não-criptografados por um instance, mas nenhum email é guardado de maneira que ele possa ser lido pelo provedor.
+* Quando possível, os emails enviados são automaticamente criptografados de forma que apenas os recepientes possam lê-los (se a chave pública OpenPGP válida do usuário pode ser encontrada). A encriptação é realizada no dispositivo do cliente.
+* Chaves pública OpenPGP são [[automaticamente descobertas e validadas => https://leap.se/nicknym]], o que permite que você tenha segurança de que sua comunicação é confidencial e com a pessoa certa (sem a dor de cabeça típica da assinatura de chaves).
+* O usuário não precisa preocupar-se com a gerência de chaves. Suas chaves estão sempre atualizadas em todos os dispositivos.
+* O usuário pode utilizar qualquer cliente de email de sua escolha (por exemple: Thunderbird, Apple Mail, Outlook).
+* Quando desconectado da internet, o usuário pode ainda interagir com uma cópia local de todo o seu email. Quando a conexão à internet voltar a tornar-se disponível, todas as modificações são sincronizadas com o armazenamento do servidor e com outros dispositivos.
+
+Características gerais de segurança da aplicação Bitmask incluem:
+
+* Todos os dados armazenados são criptografados, incluindo os dados locais e os backups na nuvem ("cloud backups"). Esta encriptação sempre [[é realizada no dispositivo do usuário => https://leap.se/soledad]], o que garante que o provedor de servidor não possa ler os dados armazenados.
+* Ainda que você seja responsável por especificar um usuário e o um password, seu [[password nunca é comunicado ao provedor => https://en.wikipedia.org/wiki/Secure_Remote_Password_protocol]].
+* Se você fizer o download da aplicação Bitmask através do endereço https://dl.bitmask.net seu provedor de serviços não poderá adicionar um backdoor e comprometer sua segurança.
+* A aplicação Bitmask é sempre mantida atualizada com os últimos patches de segurança (implementação em andamento).
+
+h2. Benefícios de longo prazo no que diz respeito à comunicação entre provedores Bitmask compatíveis
+
+Um dos problemas fundamentais com email é que os metadados com informação de roteamento é exposta como texto puro. Criptografar uma mensagem com OpenPGP ou S/MIME não ajuda a resolver o problema.
+
+O protocolo de email não suporta o método adicional de transporte utilizando TLS para criptografar a conexão. Este método, chamado StartTLS, é de fácil ataque por usuários maliciosos, pois não existe uma forma mais adequada para os provedores de email validarem a autenticidade de outros servidores (sem confiarem no sistema problemático de certificados CA). 
+
+Por enquanto, o Bitmask responde a estes problemas com dois aprimoramentos na comunicação entre provedores compatíveis:
+
+* Quando repassando emails, as chaves do servidor são descobertas e validadas utilizando DNSSEC/DANE.
+* Para estes provedores, TLS com chaves validadas torna-se requerido para todas as comunicações.
+
+Esta abordagem é bastante efetiva contra observadores externos à rede, mas não protege os metadados dos provedores de serviço. Ela também não protege contra ataques mais avançados envolvendo "timing" ("timing attacks") e análise de tráfego.
+
+Em longo prazo, nós planejamos adotar um dos seguintes esquemas para [[rotear metadados => https://leap.se/routing]].
+
+h2. Limitações 
+
+* Características a serem implementadas: o lançamento inicial do software não suporte aliases de email, encaminhamento de email ou múltiplas contas.
+* Você não pode usar a sua conta de email Bitmask em uma aplicação web. É requerida a utilização da aplicação Bitmask para utilizando do email Bitmask.
+* A aplicação Bitmask requer atualmente um provedor compatível. Nós temos planos no futuro de suportar parcialmente provedores comerciais de email, como Gmail. Esta opção garantiria ao usuário muito menos proteção do que através de um provedor Bitmask, mas permitiria ainda muito maior segurança nas comunicações por email.
+* Uma vez que todos os dados são sincronizados, se o usuário tem um de seus dispositivos comprometidos, o usuário atacante tem acesso à todos os dados. Isto é óbvio, mas é importante mencionar.
+* O usuário deve manter uma cópia completa de todo o seu email armazenado em cada dispositivo em uso. No futuro, nós planejamos suportar sincronização parcial para dispositivos móveis.
+* Nós não planejamos suportar revogação de chaves. Nós planejamos migrar, ao invés, para chaves que duram menos e menos tempo.
+* Na implementação atual, um serviço comprometido ou mal-intencionado pode ainda coletar mensagens recebidas que não estão encriptadas e metadados de roteamento. Assim que um maior número de usuários e provedores adotarem email seguro, muitos destes problemas irão desaparecer.
+
+Para maiores detalhes, visite a documentação sobre [[limitações conhecidas => limitations]].
+
+h2. Projetos Relacionados 
+
+Existem vários projetos trabalhando na próxima geração de email seguro. Na nossa opinião, não é possível garantir apenas a segurança de email, é necessário criar novos protocolos para gerenciamento de validação de chaves, transporte seguro, e proteção de metadados. Nós continuaremos os nossos esforços de cooperação e diálogo com estes grupos, explorando áreas de colaboração.
+
+Para maiores detalhes sobre os projetos relacionados, visite https://leap.se/secure-email
