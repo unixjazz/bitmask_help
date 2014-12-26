@@ -1,0 +1,111 @@
+@title = "VPN Bitmask: Características e Limitações"
+@nav_title = "VPN"
+
+h1. Benefícios da VPN Bitmask
+
+h2. Por que rodar a VPN Bitmask?
+
+A internet está sendo quebrada por governos, provedores de serviços de internet (ISPs) e corporações.
+
+h3. Quebrada por Governos 
+
+Ao redor do mundo, governos estão utilizando a internet para fins de controle social com vigilância e censura. Muitos países, como a China, o Irã e os Estados Unidos praticam a vigilância ostensiva das relações sociais de todas as pessoas, e os países da União Européia requerem que todos os ISPs e operadores de websites registrem e retenham dados pessoais sobre o comportamento dos usuários. Com leis de [["three-strikes" => http://en.wikipedia.org/wiki/Three-strikes_law]] muitos países negam acesso à internet aos cidadãos acusados de compartilhar arquivos. Alguns países proibem inclusive a utilização de novas tecnologias da comunicação, como Skype.
+
+h3. Quebrada por Provedores 
+
+Provedores de internet também estão quebrando a internet. Eles cooperam facilmente com a repressão perpetrada pelos governos e praticam monitoramento intrusivo de seu tráfego através de inspeção profunda de pacotes. Eles também monitoram sua utilização de servidores DNS e ajudam colocar as pessoas na cadeia, a serem expulsas das escolas ou banidas da internet por meras acusações de infração de direitos autorais. Provedores normalmente limitam você a apenas 1 endereço de internet. Se você desejar comparilhar sua conexão com vários dispositivos, você tem de colocar todos os dispositivos em uma rede local. Esta abordagem funciona bem se você deseja apenas navegar na web, mas torna a vida difícil se você quiser rodar diferentes aplicações.
+
+h3. Quebrada por Corporações
+
+As corporações descobriram como fazer dinheiro com a internet: vigilância. Ao monitorar o seus hábitos online, companhias de marketing constróem perfis detalhados de seu comportamento individual de forma a melhor anunciar e vender porcarias sem valor. Todas as grandes companhias de publicidade na internet utilizam monitoramento de comportamento hoje em dia. Em observância às leis de direito autoral nacionais, muitas empresas também restrigem seus serviços a alguns usuários, conquanto os usuários residam no país "certo".
+
+h2. Como a VPN Bitmask pode ajudar
+
+There are many ways that Bitmask VPN can help:
+
+# *Protege contra vigilância de provedores de internet*: a VPN elimina a capacidade dos provedores de monitorar sua comunicação. Eles não possuem registros que podem ser utilizados contra você, ou por firmas de marketing e o governo.
+# *Evita censura praticada pelo governo*: a VPN pode evitar a censura do governo completamente conquanto você tenha acesso à internet. Observe, no entanto, que a análise cuidadosa do seu tráfego por revelar que você está utilizando uma VPN, o que pode ser legal or ilegal em sua jurisdição. Em particular, nenhuma VPN pode esconder o seu tráfego da NSA ou GCHQ.
+# *Acesso à internet inteira, independentemente de onde você vive*: a VPN permite que você finja que vive em um país onde você possui o gateway VPN, permitindo que você tenha acesso à conteúdo restrito disponível em certos países. A VPN também permite que você utilize serviços que podem estar bloqueados no seu país.
+# *Torne a sua conexão Wi-Fi mais segura*: Toda a vez que você utiliza uma conexão Wi-Fi pública, todo mundo que está utilizando aquele Access Point (AP) pode espionar o seu tráfego. A VPN previne contra este tipo de monitoramento.
+# *Impeça que websites registrem o seu endereço IP*: Todos os websites irão logar o seu endereço IP e alguns inclusive vão reter a sua informação por muitos anos. Porque o seu endereço IP é efetivamente um identificador único que está ligado a sua identidade e sua localização reais, existem muitas razões pelas quais alguém pode não desejar que todos os websites que visitam tenham acesso à informações pessoais.
+
+h2. Características Especiais da VPN Bitmask
+
+A aplicação Bitmask provê internet criptografada que possui muitas vantagens em relação à "VPN Pessoal":
+
+* Não permite brechas de tráfego: a VPN Bitmask é muito melhor do que outras VPNs em prevenir tráfego não criptografado de ser transmitido do seu computador (por exemplo, em função de IPv6, DNS, ou brechas "Fail Open"). Esta garantia é forte na versão desktop, mas mais fraca na versão Android (por causa de limitações do OS Android).
+* Sem registros, sem logs: Os servidores VPN Bitmask são configurados para não manterem logs das atividades na VPN ou na resolução de nomes de domínio. Um provedor mal-intencionado pode modificar este comportamento manualmente, entretanto.
+* Semi-anonimato: Alguns provedores Bitmask compatíveis permitem utilização VPN anônima.
+
+h1. Como a VPN Bitmask Funciona 
+
+h2. Segurança da Rede 
+
+<table class="table table-striped">
+<tr>
+  <th style="width: 10em">Tipo de Segurança</th>
+  <th>O que é isto?</th>
+</tr>
+<tr>
+  <td>Segurança Humana</td>
+  <td>Comportamento humano que o mantém seguro ou longe de ameaças.</td>
+</tr>
+<tr>
+  <td>Segurança de Dispositivos</td>
+  <td>Integridade de dispositivos que estão livres de modificações de hardware e software que expõem ou roubam suas informações.</td>
+</tr>
+<tr>
+  <td>Segurança das Mensagens</td>
+  <td>Confidencialidade das mensagens que você envia e recebe, e o padrão de suas associações.</td>
+</tr>
+<tr>
+  <td>Segurança da Rede</td>
+  <td>Proteção de seu tráfego internet contra monitoramento de comportamento, roubo de contas, censura, vigilância, espionagem e marketing.</td>
+</tr>
+</table>
+
+A VPN Bitmask aplica-se apenas à *Segurança da Rede*. Por exemplo, ela não pode ajudar e aprimorar o seu comportamento, proteger seus dispositivos contra virus ou garantir que suas mensagens são criptografadas de ponta-a-ponta.
+
+h2. Uma Conexão à Internet Normal 
+
+!vpn-01_large.png!
+
+Em uma conexão normal, todo o tráfego é roteado do seu computador através de seu provedor (ISP) e para a internet até o destinatário. A cada passo ao longo do caminho, a sua informação é vulnerável à espionagem, vigilância e ataques de intermediários (chamados ataques "man-in-the-middle").
+
+h2. Uma Conexão à Internet com VPN
+
+!vpn-02_large.png!
+
+Com uma VPN, seu tráfego é criptografado no seu computador, passa atráves do seu provedor e atinge o seu provedor VPN. Uma vez que os dados estão encriptados, seu provedor não tem conhecimento do conteúdo dos seus dados que são repassados para o provedor VPN. Quando os dados chegam ao servidor VPN, eles são desencriptados e encaminhados para o seu destino final.
+
+Com *Internet Proxy Encriptado*, se os seus dados não estiverem utilizando conexões seguras, eles ainda estão vulneráveis a partir do ponto em que eles deixam o gateway VPN. Entretanto, ao rotear seus dados através do provedor VPN, você garante duas vantagens importantes:
+
+* Seus dados são protegidos de bloqueio, monitoramento, e ataques "man-in-the-middle" conduzidos por seu provedor ou por operadores de rede no seu país.
+* Seus dados aparentam utilizar o endereço IP do provedor VPN ao invés do seu endereço IP real. A maioria dos websites coletam e retém extensas bases de dados com endereços IP, o que, neste caso, foram tornados anônimos.
+
+h2. VPN torna sua conexão anônima 
+
+!vpn-03_large.png!
+
+Porque o tráfego aparenta ser originado no provedor VPN, o recepiente de suas comunicações não sabe de onde ele foi de fato gerado (a menos que, é claro, você os diga). O seu tráfego é também misturado com tráfego de centenas e talvez milhares de pessoas.
+
+
+No caso da ilustração acima, o website na Califórnia acha que o laptop no Brasil, o laptop na Europa, e o celular gigante flutuando sobre o Canadá estão todos vindo de Nova Iorque porque está é a localização de onde o VPN está. 
+
+h1. Limitação da VPN
+
+* *Atacantes Poderosos*: Grandes agências de espionagem nos Estados Unidos e na Europa, como a NSA e a GCHQ tem a capacidade de monitorar tráfego em toda a internet. Com esta capacidade, nós sabemos que eles irão identificar o tráfego VPN e correlacionar com os locais onde este tráfego está sendo gerado. Por causa disto, a utilização de uma VPN pode tornar-se mais convidativa para vigilância e monitoramento ostensivo da NSA ou GCHQ do que não utilizar nenhum serviço.
+
+* *Legalidade*: Se você vive em um estado não-democrático, pode ser ilegal utilizar VPN ou VPN pessoal para acessar conteúdo na internet que não foi aprovado pelo governo.
+
+* *Redes Móveis*: Utilizar uma VPN em seu dispostivo móvel irá tornar sua conexão segura, mas a companhia telefônica sabe a sua localização, pois ela é registrada nas torres de telefonia celular através das quais o seu dispositivo comunica.
+
+* *Uma conexão insegura é ainda insegura*: Ainda que o Bitmask torne sua localização anônima e proteja contra vigilância de seu provedor e que seus dados sejam roteados de forma segura através de seu provedor, eles sairão  para a internet como normalmente saem. Isto significa, em termos práticos, que você deve utilizar SSL e TLS quando possível.
+
+* *VPN apenas aplica-se para segurança de rede*: Utilizar VPN não protege sua comunicação se o computador já está comprometido com software ou hardware que está roubando suas informações pessoais. Se você der suas informações pessoais para um website, não existe que a VPN possa fazer para manter seu anonimato com aquele website e seus parceiros.
+
+* *Fingerprints de Navegadores*: Todo navegador de internet tem um fingerprint que pode identificar e distinguir o seu tráfego web em relação aos outros. Uma vez que websites dependem de cookies para rastreamento, um analista da rede poderoso pode usar a especificidade de seu navegador para desanonimizar o seu tráfego.
+
+* *A internet pode tornar mais lenta*: a VPN Bitmask rotea todo o seu tráfego através de uma conexão encriptada com o seu provedor de escolha antes que o trafégo seja enviado para internet normal. Este passo extra pode tornar a comunicação mais lenta. Para minimizar este efeito, procure utilizar um gateway VPN perto de onde você mora.
+
+* *Proxies Anônimos*: Existem alguns websites que bloqueam acesso desde "proxies anônimous". Por esta razão, dependendo de qual gateway VPN você está utilizando, seu tráfego pode ser bloqueado.
