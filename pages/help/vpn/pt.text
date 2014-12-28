@@ -1,0 +1,17 @@
+@nav_title = 'VPN'
+@title = 'Bitmask VPN'
+@this.toc = false
+
+h1. O que é a VPN Bitmask?
+
+Ao utilizar a VPN Bitmask, todo o seu tráfego de internet é roteado através de um provedor de sua escolha.
+
+Com a VPN Bitmask, você pode burlar censura, tornar a sua localização anônima e bloquear várias formas de vigilância da rede.
+
+Para maiores informações, visite:
+
+* [[Benefícios de utilizar a internet criptografada => benefits]]
+* [[Limitações da internet criptografada => limitations]]
+
+<%= child_summaries :include_toc => true, :heading => 1 %>
+

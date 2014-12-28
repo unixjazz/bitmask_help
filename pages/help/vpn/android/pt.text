@@ -1,0 +1,24 @@
+@title = 'VPN no Android'
+@nav_title = 'Android'
+@summary = 'Utilizando a VPN Bitmask em dispositivos Android'
+
+h2. Status da VPN
+
+O status da conexão VPN é mostrada no ícone de notificação do seu desktop:
+
+*(android-on) VPN está *conectada*, tráfego está sendo roteado de forma segura para o provedor.
+*(android-wait) VPN está *aguardando* a conexão ou reconexão após a perda de acesso à rede. Tráfego não-criptografado pode escapar durante este período.
+*(android-off) VPN está *desligada*. O tráfego não está sendo criptografado.
+
+h2. Fazendo Log-in 
+
+Ao rodar a VPN Bitmask pela primeira vez, será necessária a autenticação com o seu provedor. Em log-ins subsequentes não será necessário digitar o seu password.
+
+De vez em quando, o Bitmask irá requisitar que o seu login novamente de forma a atualizar as credenciais utilizadas para a conexão com a VPN. O tempo padrão necessário para re-fazer o log-in é o de um mês, entretanto o provedor pode estar configurado de forma distinta.
+
+
+h2. VPN Anônima
+
+Alguns provedores fornecem VPN anônima. Quando habilitada, não é necessário fazer log-in para usar o serviço VPN. Alguns destes provedores, no entanto, geralmente oferecem serviços mais rápidos quando você faz autenticação com seu nome de usuário e senha.
+
+Quando você está rodando Bitmask em modo anônimo é possível que você seja bloqueado de acessar alguns sites. A razão para o bloqueio é porque alguns sites bloqueam todo o tráfego vindo de proxies anônimos conhecidos.
