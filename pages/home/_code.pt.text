@@ -1,12 +1,12 @@
-*Ei, você! Nós precisamos de uma ajuda por aqui*. Você deseja comunicação livre de vigilância, baseada em protocolos abertos e que forneça aos usuários controle sobre os seus dados? Pois bem, pegue o teclado e [[participe => https://leap.se/pt/get-involved]] -- o código não vai se escrever sozinho. 
+*Ei, você! Nós precisamos de sua ajuda*. Você deseja comunicação livre de vigilância, baseada em protocolos abertos e que forneça aos usuários controle sobre os seus dados? Pois bem, pegue o teclado e [[participe => https://leap.se/pt/get-involved]] -- o código não vai se escrever sozinho. 
 
-Especificamente, se você tiver conhecimento em Python, Android Java, Ruby, C, CouchDV, Windows, Mac, Puppet, Qt, ou se você realmente ama criptografia, nós precisamos de sua ajuda.
+Especificamente, se você tiver conhecimento em Python, Android Java, Ruby, C, CouchDB, Windows, Mac, Puppet, Qt, ou se você realmente ama criptografia, nós precisamos da sua ajuda.
 
 # [[Crie um fork do nosso código => https://leap.se/en/source]]
 # Crie um novo branch chamado feature/x ou bugfix/x
 # Hack à vontade 
-# Faça um 'pull request' no github desde o seu branch com a nova 'feature' ou com o 'bugfix' para o branch de desenvolvimento upstream
-# Discuta e espere que a requisição seja incorporada
+# Faça um 'pull request' no github desde o seu branch com a nova funcionalidade ou com o 'bugfix' para o branch de desenvolvimento upstream
+# Converse conosco e espere que a requisição seja incorporada
 # Repita
 
-Atualmente, nós lançamos uma nova versão do Bitmask a cada três semanas bem como outros componentes quando necessário.
+Atualmente nós lançamos uma nova versão do Bitmask a cada três semanas, bem como outros componentes quando necessário.
