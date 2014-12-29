@@ -1,0 +1,23 @@
+@title = 'Obtendo Suporte'
+@nav_title = 'Suporte'
+@toc = true
+
+h2. Você encontrou um bug no software?
+
+Você pode reportar o bug ("file a bug report"):https://leap.se/code/projects/report-issues/issues/new?issue[tracker_id]=2 no bug tracker do projeto LEAP. Primeiro, [[procure por problemas similares na base de dados de bugs reportados => https://leap.se/code/search]] para ver se o bug já não foi reportado.
+
+h2. Deseja sugerir uma nova feature para o Bitmask?
+
+Você pode requisitar novas funcionalidades para o software: https://leap.se/code/projects/report-issues/issues/new?issue[tracker_id]=1 no bug tracker do projeto LEAP. primeiro, [[procure por sugestões semelhantes => https://leap.se/code/search]] para garantir que a funcionalidade não foi sugerida por outra pessoa.
+
+h2. Pesquise o fórum de discussão 
+
+Em breve...
+
+h2. Obtenha suporte do seu provedor 
+
+Para questões relacionadas ao serviço e não ao software Bitmask, você precisa contatar o provedor diretamento. Aqui estão alguns links para provedores de serviço populares que suportam Bitmask: 
+
+* [[demo.bitmask.net -> https://demo.bitmask.net]]
+* [[riseup.net -> https://black.riseup.net]]
+* [[calyx.net -> https://calyx.net]]
