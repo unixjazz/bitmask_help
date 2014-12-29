@@ -1,0 +1,73 @@
+@title = 'Primeiros Passos'
+
+h1. Registre uma nova conta 
+
+Para utilizar o Bitmask, você deve primeiro criar uma conta em um provedor compatível. Você pode criar uma nova conta usando a aplicação Bitmask ou visitando a página do provedor. Por questões de segurança, nós recomendamos que os usuários criem contas preferencialmente através da aplicação Bitmask.
+
+h2. Android
+
+h4. Passo 1 -- Escolher um provedor 
+
+p((. Quando você roda o Bitmask pela primeira vez, ele oferece uma lista provedores disponíveis.
+
+p((. Para adicionar um provedor que não faz parte da lista, pressione o <button>&#8853;</button> botão.
+
+h4. Passo 2 -- Configuração do provedor
+
+p((. Para comunicar de forma segura com o provedor, Bitmask necessita baixar e validar as suas credenciais. Essas credenciais permitem que o Bitmask saiba que está comunicando com o provedor correto.
+
+h4. Passo 3 -- Registre uma nova conta
+
+p((. Selecione o seu nome de usuário e password. O nome de usuário deve ser digitado em letras minúsculas e números. O password deve ter, pelo menos, oito caracteres, incluindo caracteres maísculos, minúsculos e números. 
+
+p((. Porque o seu password nunca é comunicado ao provedor, é impossível recuperar um password com Bitmask. Por favor, anote seu password ou salve em algum gerenciador de passwords. 
+
+h4. Passo 4 -- Ativar a VPN
+
+p((. Ative a VPN clicando na chave ON/OFF.
+
+p((. Android irá perguntar se você deseja criar uma conexão VPN. Marque a opção "Eu confio nesta aplicação" e prossiga.
+
+p((. Uma vez que a chave é modificada para a posição ON, você está utilizando a VPN Bitmask.
+
+h2. Desktop
+
+Quando você roda a aplicação Bitmask desktop pela primeira vez, ela abrirá um guia de configuração ("Bitmask Provider Setup"). Se você já rodou Bitmask, você pode ter acesso a este item através do menu *Bitmask > Create a new account*.
+
+h4. Passo 1 -- Seja bem-vindo 
+
+p((. Escolha *Sign up for a new account* ou *I have an account* e pressione <button>Next</button>.
+
+h4. Passo 2 -- Escolha um provedor 
+
+p((. Se o provedor de sua escolha é conhecido pela aplicação Bitmask, você pode selecioná-lo através do menu.
+
+p((. Do contrário, selecione *Configure new provider* e digite o nome de domínio do novo provedor.
+
+p((. Pressione <button>Check</button> para validar o novo provedor. Bitmask tentará contatar o provedor e confirmar se o provedor é compatível.
+
+p((. Se a verificação for aprovada, clique no botão <button>Next</button>. Se a verificação não passar, entre em contato com o seu provedor e comunique que algo está errado.
+
+p((. A próxima página fornece maiores detalhes sobre o provedor que você selecionou. Se você deseja ainda proceder, clique no botão <button>Next</button> mais uma vez.
+
+h4. Passo 3 -- Configuração do provedor
+
+p((. De forma a comunicar de forma segura com o seu provedor, Bitmask necessita baixar e validar suas credenciais. Estas credenciais permitem que a aplicação Bitmask saiba que está sempre falando com o provedor certo. 
+
+p((. Se todo o processo de verificação passar, clique no botão <button>Next</button>.
+
+h4. Passo 4 -- Registrar uma nova conta
+
+p((. Selecione o nome de usuário e o password. O nome de usuário deve conter caracteres em letra minúscula e números. O password deve conter, pelo menos, oito caracteres maísculos, minísculos e números.
+
+p((. Porque o seu password nunca é comunicado ao provedor, é impossível recuperar um password com Bitmask. Por favor, anote seu password ou guarde-o em um gerenciador de passwords.
+
+p((. Se aprovado, clique no botão <button>Next</button>.
+
+h4. Passo 5 - Seleção do serviço 
+
+p((. Selecione os serviços que você deseja habilitar na sua conta. Você pode mudar esta configuração em outro momento.
+
+p((. Finalmente, clique em <button>Connect</button>.
+
+
