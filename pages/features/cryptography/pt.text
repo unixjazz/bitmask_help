@@ -1,23 +1,23 @@
-@title = "Destalhes sobre a Criptografia do Bitmask"
-@nav_title = "Crypto Detalhes"
+@title = "Detalhes sobre a Criptografia do Bitmask"
+@nav_title = "Cripto Detalhes"
 
-Você pediu maiores detalhes sobre a encriptação utilizada, aqui estão os detalhes. Nesta página nós documentamos todos os detalhes sobre a criptografia utilizada no Bitmask e as razões pelas quais algumas decisões foram feitas. Para maiores detalhes, [[inspecione o código fonte => https://leap.se/git]] ou leia nossa [[documentação técnica => https://leap.se/docs]].
+Você pediu maiores detalhes sobre a criptografia utilizada, aqui estão os detalhes. Nesta página nós documentamos todos os detalhes sobre a criptografia utilizada no Bitmask e as razões pelas quais algumas decisões foram feitas. Para maiores detalhes, [[inspecione o código fonte => https://leap.se/git]] ou leia nossa [[documentação técnica => https://leap.se/docs]].
 
 h2. Autenticação - Password Remoto Seguro (SRP)
 
 O Bitmask utiliza "Secure Remote Password" (SRP) para autenticar com um provedor de serviços. SRP é baseado na abordagem "zero-knowledge-proof" para autenticação com nome de usuário e password que não fornece ao servidor uma cópia do password. Geralmente, sistemas de autenticação funcionam através do envio de uma cópia em texto puro do password para o servidor, o qual cria um hash do password e arquiva o hash. Com autenticação SRP, o cliente e servidor negociam um "verificador de password" depois de várias trocas de envio e recebimento (round-trip). O servidor nunca tem acesso à versão em texto puro do password. 
 
-Outro benefício adicional do SRP é que ambas as partes autenticam umas às outras. Com a abordagem tradicional de passwords que passar por uma função hash, o servidor pode dizer que o password estava correto mesmo que este não tenha idéia do password. Com SRP, o usuário é autenticado pelo servidor como também o servidor é autenticado pelo usuário. 
+Outro benefício adicional do SRP é que ambas as partes autenticam umas às outras. Com a abordagem tradicional de senhas que passam por uma função hash, o servidor pode dizer que a senha estava correta mesmo que este não tenha ideia de qual seja a senha. Com SRP, o usuário é autenticado pelo servidor como também o servidor é autenticado pelo usuário. 
 
-Existem algumas limitações com o SRP. Um provedor comprometido ou mal-intencionado pode tentar quebrar um password com força-bruta, tentando milhares de combinações, o que é comum no contexto de utilizado de password hashes. Por esta razão, é importante escolher um password forte. Na prática, entretanto, usuários costumam escolher passwords que não são fortes.
+Existem algumas limitações com o SRP. Um provedor comprometido ou mal-intencionado pode tentar quebrar uma senhacom força bruta, tentando milhares de combinações, o que é comum no contexto de utilizado de hashes de senhas. Por esta razão, é importante escolher uma senha forte. Na prática, entretanto, usuários costumam escolher senhas que não são fortes.
 
-Uma segunda limitação diz respeito à aplicaçao web. Ela também utiliza SRP, mas o código SRP é carregado do provedor. Se o provedor estiver comprometido ou mal-intencionado, ele pode rodar um código javascript para capturar o password do usuário.
+Uma segunda limitação diz respeito à aplicação web. Ela também utiliza SRP, mas o código SRP é carregado do provedor. Se o provedor estiver comprometido ou mal-intencionado, ele pode rodar um código javascript para capturar a senha do usuário.
 
-Nós temos três planos para resolver estes problemas em potential no futuro:
+Nós temos três planos para resolver estes problemas em potencial no futuro:
 
 # Permitir a utilização de uma chave aleatória longa que é requerida como parte do processo de autenticação (opcionalmente). Por exemplo, para cada dispositivo que o usuário possui Bitmask instalado, existiria uma "chave do dispositivo" e o usuário teria que autorizar essas chaves de dispositivo antes de rodar o Bitmask em um novo dispositivo.
 
-# Nós também planejamos incluir no Bitmask um filtro com os 10.000 passwords mais comuns. De acordo com algumas estimativas, 98.8% dos usuários escolhem passwords que estão incluidos na lista dos 10.000 passwords mais comuns. O filtro para estes passwords é relativamente pequeno, e nóis podemos simplesmente impedir o usuário de escolher estes passwords comuns (ainda que existam falsos positivos).
+# Nós também planejamos incluir no Bitmask um filtro com as 10.000 senhas mais comuns. De acordo com algumas estimativas, 98.8% dos usuários escolhem senhas que estão incluídas na lista dos 10.000 senhas mais comuns. O filtro para estas senhas é relativamente pequeno, e nós podemos simplesmente impedir o usuário de escolher estas senhas comuns (ainda que existam falsos positivos).
 
 # Permitir que provedores impeçam a autenticação via aplicação web. Autenticação pode ocorrer através da aplicação Bitmask, a qual teria então de carregar o website com o token de sessão obtido. Desta forma o código SRP crítico de autenticação nunca é carregado pelo provedor.
 
@@ -35,7 +35,7 @@ Quando um provedor de serviços é adicionado ao Bitmask pela primeira vez, o ce
 
 Toda as conexões subsequentes com o provedor usam CA que são específicas de um provedor para autenticar a conexão TLS. Essencialmente, esta é uma forma de estabelecimento de certificado e TOFU. Para que um usuário malicioso se faça passar pelo provedor, ele precisa apresentar um certificado de servidor x.509 falso autenticado pela CA e então interceptar e reescrever todo o tráfego subsequente entre o cliente Bitmask e o servidor.
 
-Se o provedor for "pre-seeded" com a aplicação Bitmask, então o fingerprint do certificado CA do provedor específico é conhecido de antemão. Nestes casos, o sistema CA x.509 nunca é confiado. 
+Se o provedor for "pre-seeded" com a aplicação Bitmask, então a impressão digital do certificado CA do provedor específico é conhecido de antemão. Nestes casos, o sistema CA x.509 nunca é confiado. 
 
 Os certificados CA específicos de provedor utilizam 4096 bit RSA com SHA256 digest por padrão. O certificado do servidor utiliza 2048 bit RSA com SHA256 digest. Estão padrões podem ser modificados facilmente.
 
@@ -43,9 +43,9 @@ Todas as conexões TLS utilizam ciphers PFS.
 
 h2. Armazenamento - Soledad
 
-Bitmask armazena os dados no software [[Soledad => https://leap.se/soledad]], o qual gerencia a encriptação dos dados, criando um backup seguro e sincronizando entre os outros dispositivos do usuário. No software Soledad, armazenamento local utiliza encriptação simétrica de bloco (symmetric block encryption) da base de dados copmleta usando apenas uma chave. Para os dados armazenados remotamente, cada documento individual é encriptado utilizando uma chave única.
+Bitmask armazena os dados no software [[Soledad => https://leap.se/soledad]], o qual gerencia a criptografia dos dados, criando um backup seguro e sincronizando entre os outros dispositivos do usuário. No software Soledad, armazenamento local utiliza criptografia simétrica de bloco (symmetric block encryption) da base de dados completa usando apenas uma chave. Para os dados armazenados remotamente, cada documento individual é criptografado utilizando uma chave única.
 
-Tanto o armazenamento local como remoto são derivados de um "armazenamento secreto" mestre. Quer dizer, um segredo aleatório e longo de armazenamento é guardado no disco, protegido por encriptação simétrica usando uma chave derivada do password do usuário (scrypt é utiizado como função de derivação da chave). 
+Tanto o armazenamento local como remoto são derivados de um "armazenamento secreto" mestre. Quer dizer, um segredo aleatório e longo de armazenamento é guardado no disco, protegido por criptografia simétrica usando uma chave derivada da senha do usuário (scrypt é utiizado como função de derivação da chave). 
 
 *Armazenamento Local*
 
@@ -55,50 +55,50 @@ p((. A base de dados local SQLite utiliza @AES-256-CBC@. Veja para maiores detal
 
 *Armazenamento Remoto*
 
-p((. Encriptação por documento é armazenada remotamente e utiliza encriptação simétrica com AES-256-CTR. A biblioteca pycryptopp é utilizada para tal.
+p((. Criptografia por documento é armazenada remotamente e utiliza a criptografia simétrica com AES-256-CTR. A biblioteca pycryptopp é utilizada para tal.
 
 <!-- p((. A chave de cada documento é X bits em tamanho e é derivada de X. -->
 
-p((. Alguns documentos no espaço de armazenamento remoto do usuário são adicionados pelo provedor, tais como no caso de um email recebido. Estes documentos usam encriptação simétrica com cada documento encriptado com a chave pública OpenPGP do usuário. A biblioteca que usamos para isso é o [[fork da biblioteca python-gnupg criado por Isis => https://github.com/isislovecruft/python-gnupg]]. Estes documentos são apenas temporariamente guardados desta forma: quando o usuário os acessa, eles são desencriptados e re-encriptados usando outros métodos. 
+p((. Alguns documentos no espaço de armazenamento remoto do usuário são adicionados pelo provedor, tais como no caso de um email recebido. Estes documentos usam criptografia simétrica com cada documento criptografado com a chave pública OpenPGP do usuário. A biblioteca que usamos para isso é o [[fork da biblioteca python-gnupg criado por Isis => https://github.com/isislovecruft/python-gnupg]]. Estes documentos são apenas temporariamente guardados desta forma: quando o usuário os acessa, eles são decifrados e re-criptografados usando outros métodos. 
 
 *Transporte*
 
 p((. TLS, como citado acima. No futuro, utilizaremos CurveZMQ.
 
-h2. Túnel Encriptado - OpenVPN
+h2. Túnel Criptografado - OpenVPN
 
-OpenVPN tem três configurações que garantem o controle dos ciphers utilizados (existe um quarto cipher, @--tls-auth@, mas não podemos utilizá-lo em um ambiente multi-usuário público). Cada provedor pode facilmente escolher as opções desejadas. Abaixo estão listadas as opções padroes quem vem com a plataforma LEAP. 
+OpenVPN tem três configurações que garantem o controle das cifras utilizadas (existe uma quarta cifra, @--tls-auth@, mas não podemos utilizá-lo em um ambiente multi-usuário público). Cada provedor pode facilmente escolher as opções desejadas. Abaixo estão listadas as opções padrões que vem com a plataforma LEAP. 
 
-*tls-cipher*
+*cifra-tls*
 
 p((. A opção @--tls-cipher@ governa a sessão de autenticação do OpenVPN. Se esta for comprometida, você pode estar comunicando com o um agente malicioso MiTM. A parte TLS do OpenVPN autentica o cliente e o servidor, e negocia o material aleatório a ser utilizado na autenticação de pacotes e na encriptação de pacotes.
 
-p((. Ao invés de permitir muitas opções, o Bitmask apenas suporta um único cypher (para previnir ataques).
+p((. Ao invés de permitir muitas opções, o Bitmask apenas suporta uma única cifra (para prevenir ataques).
 
-p((. No momento, nós escolhemos @DHE-RSA-AES128-SHA@. A questão mais importante é a de escolher o cypher que suporta PFS, e todos os cyphers @DHE@ o suportam.
+p((. No momento, nós escolhemos @DHE-RSA-AES128-SHA@. A questão mais importante é a de escolher a cifra que suporta PFS, e todas as cifras @DHE@ o suportam.
 
 p((. Nós escolhemos @AES-128@ porque existem vulnerabilidades conhecidas no @AES-192@ e no @AES-256@ "key schedules". Não existem vulnerabilidades conhecidas em respeito à ataques de força bruta contra "full 14 round" AES-256, mas vulnerabilidades do AES-256 utilizando outros "round counts" é suficiente para recomendarmos AES-128 ao invés do AES-256 em termos gerais. Para maiores informações, veja o post de Bruce Schneier [[
 Another New AES Attack => https://www.schneier.com/blog/archives/2009/07/another_new_aes.html]].
 
-p((. Nós prefeririamos utilizar ECC ao invés de RSA, e planejamos fazê-lo eventualmente. É um pouco mais complicado porque envolve mudanças no nosso código TLS em vários lugares (recompilação do openvpn, mudar a biblioteca para geração de certificados utilizada por sysadmins e pelo API dos provedores).
+p((. Nós preferiríamos utilizar ECC ao invés de RSA, e planejamos fazê-lo eventualmente. É um pouco mais complicado porque envolve mudanças no nosso código TLS em vários lugares (recompilação do openvpn, mudar a biblioteca para geração de certificados utilizada por sysadmins e pelo API dos provedores).
 
-p((. O padrão corrente para o cliente e servidor de certificados x.509 utilizado por OpenVPN é 2048 RSA com SHA256 digest. No presente, nós pensamos que não existem evidências suficientes para a utilização de chaves de tamanho maior, o que traria uma dramatica diminuição na velocidade de conexão. Esta configuração é modificável pelo provedor (veja todas as opções, rode @leap inspect provider.json@).
+p((. O padrão corrente para o cliente e servidor de certificados x.509 utilizado por OpenVPN é 2048 RSA com SHA256 digest. No presente, nós pensamos que não existem evidências suficientes para a utilização de chaves de tamanho maior, o que traria uma dramática diminuição na velocidade de conexão. Esta configuração é modificável pelo provedor (veja todas as opções, rode @leap inspect provider.json@).
 
 *autenticação*
 
 p((. A opção @--auth@ determina qual "hashing digest" será utilizado para autenticar cada pacote de tráfego usando HMAC.
 
-p((. Nós escolhemos manter @SHA1@ como padrao de digest ao invés de @SHA256@. Se um usuário malicioso quebrar um SHA1 HMAC em cada pacote em tempo real, você problemas mais sérios do que a sua VPN.
+p((. Nós escolhemos manter @SHA1@ como padrão de digest ao invés de @SHA256@. Se um usuário malicioso quebrar um SHA1 HMAC em cada pacote em tempo real, você problemas mais sérios do que a sua VPN.
 
-*cipher*
+*cifra*
 
 p((. A opção @--cipher@ determina como os pacotes são criptografados. Nós escolhemos @AES-128-CBC@.
 
-p((. A opção OpenVPN padrão é provavel e atualmente melhor do que AES-128, uma vez que é Blowfish. Nós escolhemos AES-128 porque os ciphers TLS estão baseados em AES-128. Nós prefeririamos normalmente o "cipher mode" OFB sobre CBC, mas o OpenVPN manual diz que o "CBC é recomendado e CFB e OFB devem ser considerados modos avançados".
+p((. A opção OpenVPN padrão é provável e atualmente melhor do que AES-128, uma vez que é Blowfish. Nós escolhemos AES-128 porque os ciphers TLS estão baseados em AES-128. Nós preferiríamos normalmente o "cipher mode" OFB sobre CBC, mas o OpenVPN manual diz que o "CBC é recomendado e CFB e OFB devem ser considerados modos avançados".
 
 h3. obfsproxy
 
-Obfsproxy é opcionalmente utilizado para fazer com que o tráfego VPN não apareça como tráfego VPN para quem estiver monitorando a rede. Obfsproxy utiliza módulos chamados "pluggable transports" para obfuscar tráfego subjacente. Diferentes protocolos de transporte podem ou não utilizar encriptação e tem diferentes implementações e escolhas no que diz respeito à esquemas de criptografia.
+Obfsproxy é opcionalmente utilizado para fazer com que o tráfego VPN não apareça como tráfego VPN para quem estiver monitorando a rede. Obfsproxy utiliza módulos chamados "pluggable transports" para ofuscar tráfego subjacente. Diferentes protocolos de transporte podem ou não utilizar encriptação e tem diferentes implementações e escolhas no que diz respeito à esquemas de criptografia.
 
 Nós escolhemos o "Scramblesuit pluggable transport" que utiliza "Uniform Diffie-Hellman" para o handshake inicial e AES-CTR 256 para os dados da aplicação.
 
@@ -106,7 +106,7 @@ h2. Email Criptografado - OpenPGP
 
 O par de chaves autogerado para o usuário utiliza 4096 RSA para a chave de assinatura mestre.
 
-Bitmask recusará criptografar para um recepiente cuja chave pública é igual ou menor do que 1024.
+Bitmask recusará criptografar para um recipiente cuja chave pública é igual ou menor do que 1024.
 
 Todas as chaves são guardados na aplicação Soledad.
 
@@ -118,9 +118,9 @@ h2. Updates Seguros - TUF
 
 Os updates seguros são feitos utilizando [[TUF => http://theupdateframework.com/]], eles utilizam chaves OpenSSL 4096 RSA com pyCrypto. Existem três chaves envolvidas no processo de update (root, targets e timestamp).
 
-* A chave root é usada para certificar que o resto das chaves estão guardadas em um armazemento offline e é utilizada apenas uma vez por ano para atualizar a certificação ou o caso de rotação para outra chave.
+* A chave root é usada para certificar que o resto das chaves estão guardadas em um armazenamento offline e é utilizada apenas uma vez por ano para atualizar a certificação ou o caso de rotação para outra chave.
 * As chaves target são utilizadas para assinar todas as atualizações. Esta chave está nas mãos do "release manager" e é utilizada em todos os releases.
-* A chave timestamp é utilizada para assinar o arquivo timestamp todo o dia, este arquivo é utilizado pelo cliente para previnir que um adversário comprometa com uma atualização desatualizada. Esta chave é guardada online na plataforma dos servidores.
+* A chave timestamp é utilizada para assinar o arquivo timestamp todo o dia, este arquivo é utilizado pelo cliente para prevenir que um adversário comprometa com uma atualização desatualizada. Esta chave é guardada online na plataforma dos servidores.
 
 h2. Outros 
 
