@@ -1,7 +1,7 @@
 @title = "Detalhes sobre a Criptografia do Bitmask"
 @nav_title = "Cripto Detalhes"
 
-Você pediu maiores detalhes sobre a criptografia utilizada, aqui estão os detalhes. Nesta página nós documentamos todos os detalhes sobre a criptografia utilizada no Bitmask e as razões pelas quais algumas decisões foram feitas. Para maiores detalhes, [[inspecione o código fonte => https://leap.se/git]] ou leia nossa [[documentação técnica => https://leap.se/docs]].
+Você perguntou por maiores detalhes sobre a criptografia utilizada, pois aqui estão os detalhes! Nesta página nós documentamos todos os detalhes sobre a criptografia utilizada no Bitmask e as razões pelas quais algumas decisões foram feitas. Para maiores detalhes, [[inspecione o código fonte => https://leap.se/git]] ou leia nossa [[documentação técnica => https://leap.se/docs]].
 
 h2. Autenticação - Password Remoto Seguro (SRP)
 
